@@ -9,6 +9,7 @@
 import Foundation
 import CloudKit
 
+//  Use these to avoid spelling errors
 struct Constants {
     static let recordKey = "Message"
     static let textKey = "text"

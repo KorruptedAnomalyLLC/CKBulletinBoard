@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CFEE8A822A6DD1000FDAF74 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFEE8A722A6DD1000FDAF74 /* CloudKit.framework */; };
 		FBEB0FC122A585080094F3E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB0FC022A585080094F3E9 /* AppDelegate.swift */; };
 		FBEB0FC622A585080094F3E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBEB0FC422A585080094F3E9 /* Main.storyboard */; };
 		FBEB0FC822A585090094F3E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBEB0FC722A585090094F3E9 /* Assets.xcassets */; };
 		FBEB0FCB22A585090094F3E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBEB0FC922A585090094F3E9 /* LaunchScreen.storyboard */; };
-		FBEB0FD522A585C60094F3E9 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBEB0FD422A585C60094F3E9 /* CloudKit.framework */; };
 		FBEB0FD722A587510094F3E9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB0FD622A587510094F3E9 /* Message.swift */; };
 		FBEB0FDB22A5BACD0094F3E9 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB0FDA22A5BACD0094F3E9 /* MessageController.swift */; };
 		FBEB0FDE22A5C0060094F3E9 /* MessageListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB0FDD22A5C0060094F3E9 /* MessageListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CFEE8A722A6DD1000FDAF74 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		FBEB0FBD22A585080094F3E9 /* CK26BulletinBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CK26BulletinBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBEB0FC022A585080094F3E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBEB0FC522A585080094F3E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -25,7 +26,6 @@
 		FBEB0FCA22A585090094F3E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBEB0FCC22A585090094F3E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBEB0FD222A585C10094F3E9 /* CK26BulletinBoard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CK26BulletinBoard.entitlements; sourceTree = "<group>"; };
-		FBEB0FD422A585C60094F3E9 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		FBEB0FD622A587510094F3E9 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		FBEB0FDA22A5BACD0094F3E9 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
 		FBEB0FDD22A5C0060094F3E9 /* MessageListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListTableViewController.swift; sourceTree = "<group>"; };
@@ -36,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBEB0FD522A585C60094F3E9 /* CloudKit.framework in Frameworks */,
+				0CFEE8A822A6DD1000FDAF74 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +76,7 @@
 		FBEB0FD322A585C60094F3E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FBEB0FD422A585C60094F3E9 /* CloudKit.framework */,
+				0CFEE8A722A6DD1000FDAF74 /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

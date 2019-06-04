@@ -18,12 +18,11 @@ class MessageController {
     let privateDB = CKContainer.default().privateCloudDatabase
     // CRUD
     // Create
-    func createMessage(text: String, timestamp: Date) {
+    func createMessage(text: String, timestamp: Date, completion: @escaping (Bool) -> Void) {
         let message = Message(text: text, timestamp: timestamp)
         //
-        self.saveMessage(message: message) { (_) in
-            // Bad error handling
-        }
+        self.saveMessage(message: message, completion: completion)
+            
     }
     // Remove - Delete
     
@@ -78,6 +77,29 @@ class MessageController {
             let messages = records.compactMap({Message(ckRecord: $0)})
             self.messages = messages
             completion(true)
+        }
+    }
+    
+    func subscribeToNotifications(completion: @escaping (Error?) -> Void) {
+        
+        //        let predicate = NSPredicate(format: "username == %@", "wsalcedo")
+        let predicate = NSPredicate(value: true)
+        
+        let subscription = CKQuerySubscription(recordType: Constants.recordKey, predicate: predicate, options: .firesOnRecordCreation)
+        
+        let notificationInfo = CKSubscription.NotificationInfo()
+        notificationInfo.alertBody = "New post! Would you look at that?!"
+        notificationInfo.shouldBadge = true
+        notificationInfo.soundName = "default"
+        
+        subscription.notificationInfo = notificationInfo
+        
+        privateDB.save(subscription) { (_, error) in
+            if let error = error {
+                print("Subscription did not save: \(error.localizedDescription)")
+                completion(error)
+                return
+            }
         }
     }
 }// End of class
