@@ -31,6 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        MessageController.SharedInstance.requestDiscoverabilityAuth { (permission, error) in
+            if let error = error {
+                print("Error with user discoverability request: \(error.localizedDescription)")
+            }
+        }
+        
         return true
     }
     
@@ -42,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func application(_ application: UIApplication, didRecieveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
         MessageController.SharedInstance.fetchMessages { (success) in
             if success {

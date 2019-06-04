@@ -22,7 +22,7 @@ class MessageController {
         let message = Message(text: text, timestamp: timestamp)
         //
         self.saveMessage(message: message, completion: completion)
-            
+        
     }
     // Remove - Delete
     
@@ -75,7 +75,7 @@ class MessageController {
             // Record
             guard let records = records else {completion(false); return}
             var messages = records.compactMap({Message(ckRecord: $0)})
-            messages.sort { $0.timestamp < $1.timestamp }
+            messages.sort { $0.timestamp > $1.timestamp }
             self.messages = messages
             completion(true)
         }
@@ -103,4 +103,38 @@ class MessageController {
             }
         }
     }
+    
+    func requestDiscoverabilityAuth(completion: @escaping (CKContainer_Application_PermissionStatus, Error?) -> Void) {
+        
+        CKContainer.default().status(forApplicationPermission: .userDiscoverability) { (status, error) in
+            guard status != .granted else { completion(.granted, error); return }
+            
+            CKContainer.default().requestApplicationPermission(.userDiscoverability, completionHandler: completion)
+        }
+    }
+    
+    func fethAllDiscoverableUsers(completion: @escaping ([CKUserIdentity], Error?) -> Void) {
+        
+        let discoverIdentities = CKDiscoverAllUserIdentitiesOperation()
+        
+        var discoveredIds: [CKUserIdentity] = []
+        
+        discoverIdentities.userIdentityDiscoveredBlock = { identity in
+            discoveredIds.append(identity)
+        }
+        
+        discoverIdentities.discoverAllUserIdentitiesCompletionBlock = { error in
+            completion(discoveredIds, error)
+        }
+        
+        CKContainer.default().add(discoverIdentities)
+        
+    }
+    
+    func fetchUserIdentityWith(email: String, completion: @escaping (CKUserIdentity?, Error?) -> Void) {
+        
+        CKContainer.default().discoverUserIdentity(withEmailAddress: email, completionHandler: completion)
+        
+    }
+    
 }// End of class
