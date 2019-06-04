@@ -74,7 +74,8 @@ class MessageController {
             }
             // Record
             guard let records = records else {completion(false); return}
-            let messages = records.compactMap({Message(ckRecord: $0)})
+            var messages = records.compactMap({Message(ckRecord: $0)})
+            messages.sort { $0.timestamp < $1.timestamp }
             self.messages = messages
             completion(true)
         }
